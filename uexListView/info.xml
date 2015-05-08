@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<uexplugins>
+    <plugin
+        uexName="uexListView" version="3.0.7" build="7">
+		<info>7:修复listview加载网络图片显示不正常的问题</info>
+		<build>6:修复listview侧滑按钮显示不正常的问题</build>
+		<build>5:修复listview不能随页面关闭的问题</build>
+		<build>4:更新适配机型使用的方法</build>
+		<build>3:修复点击打开，再点击删除 插件崩溃的问题，修复左滑或右滑list时不只显示一个删除和一个分享的问题</build>
+		<build>2:修复list条目不足时不能上拉加载的问题</build>
+		<build>1:修复下拉刷新内容不正确的问题，修复list列表中的图标不及时刷新的问题，修复删除后再次打开无反应的问题</build>
+		<build>0:Listview下拉列表，封装Listview扩展功能</build>
+    </plugin>
+</uexplugins>

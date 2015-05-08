@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white" >
+
+    <RelativeLayout
+        android:id="@+id/foot_contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dp" >
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" >
+
+            <ImageView
+                android:id="@+id/lvFooterArrowIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/default_upr_flip" />
+
+            <ProgressBar
+                android:id="@+id/lvFooterProgressBar"
+                style="?android:attr/progressBarStyleSmall"
+                android:progressDrawable="@drawable/default_ptr_rotate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/lvFooterTipsTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="加载更多"
+                android:textSize="20sp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lvFooterLastUpdatedTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上次加载"
+                android:textSize="10sp"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>
