@@ -37,7 +37,7 @@ public class EUExAdapter extends BaseAdapter {
 		this.datas = dataBean;
 		this.context = context;
 		
-		options = new DisplayImageOptions.Builder()  
+		options = new DisplayImageOptions.Builder()
 		.cacheInMemory(true) 
 		.cacheOnDisk(true)
 		.displayer(new RoundedBitmapDisplayer(20))  

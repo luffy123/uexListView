@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<uexplugins>
+	<plugin
+        className="org.zywx.wbpalmstar.plugin.uexlistview.EUExListView" uexName="uexListView" >
+        <method name="openCustom"/>
+        <method name="setCustomItems"/>
+        <method name="closeCustom"/>
+        <method name = "insertCustomItem"/>
+        <method name = "updateCustomItem"/>
+        <method name = "deleteCustomItem"/>
+        <method name = "onCustomItemClick" type = "2"/>
+        <method name = "onCustomPullRefreshHeader" type = "2"/>
+        <method name = "onCustomPullRefreshFooter" type = "2"/>
+    </plugin>
+</uexplugins>

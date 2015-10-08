@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<linearlayout width = "800" height = "-1" gravity = "centerY"
+              background = "#BA55D3" orientation = "horizontal">
+    <text id = "right1" width = "-2" height = "-2" text = "更新" weight = "1"
+            textColor = "#000000" onClick = "onRightClick"  gravity = "center"/>
+    <text id = "right2" width = "-2" height = "-2" text = "删除" weight = "1"
+            textColor = "#000000" onClick = "onRightClick" gravity = "center"/>
+</linearlayout>

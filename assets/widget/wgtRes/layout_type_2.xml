@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<linearlayout width = "-1" height = "-1" gravity = "centerY"
+              padding="5" background = "#ffffff" orientation = "horizontal">
+    <text id = "txt1" width = "-2" height = "-2" weight = "1" text="item" textSize = "23"
+          textColor = "#000000,#dddddd,#ff0000" onClick = "onClick"/>
+    <button id = "btn1" width = "-2" height = "-2" text = "Add" onClick = "onClick"
+            textColor = "#ff0000,#dddddd,#ff0000,#ff0000"/>
+</linearlayout>

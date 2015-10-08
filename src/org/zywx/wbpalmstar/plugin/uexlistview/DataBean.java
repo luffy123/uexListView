@@ -190,7 +190,7 @@ public class DataBean {
 		public void setPlaceholderImg(String placeholderImg) {
 			this.placeholderImg = placeholderImg;
 		}
-		
-		
+
+
 	}
 }

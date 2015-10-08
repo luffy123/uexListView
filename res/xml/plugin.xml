@@ -12,5 +12,12 @@
         <method name="setItemSwipeType"/>
         <method name="setPullRefreshHeader"/>
         <method name="setPullRefreshFooter"/>
+
+        <method name="openCustom"/>
+        <method name="setCustomItems"/>
+        <method name="closeCustom"/>
+        <method name = "insertCustomItem"/>
+        <method name = "deleteCustomItem"/>
+        <method name = "updateCustomItem"/>
     </plugin>
 </uexplugins>

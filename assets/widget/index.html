@@ -1,318 +1,97 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
-	
-	<script type="text/javascript">
-	
-	window.uexOnload = function() {
-	
-		uexListView.onItemClick = function(itemIndex) {
-			alert(itemIndex);
-		}
-		
-		uexListView.onLeftOptionButtonInItem = function(itemIndex, optionBtnIndex) {
-			alert('左边第'+itemIndex+'行 bt'+optionBtnIndex);
-		}
-		
-		uexListView.onRightOptionButtonInItem = function(itemIndex, optionBtnIndex) {
-			alert('右边第'+itemIndex+'行 bt'+optionBtnIndex);
-		}
-		
-		uexListView.ontPullRefreshHeaderListener = function(status) {
-			switch(status) {
-				case 0:
-					document.getElementById('stuts').innerHTML ="开始刷新";
-					break;
-				case 1:
-					document.getElementById('stuts').innerHTML ="刷新中";
-					reloadItems();
-					break;
-				case 2:
-					document.getElementById('stuts').innerHTML ="刷新完成";
-					break;
-			}
-			
-		}
-		
-		uexListView.ontPullRefreshFooterListener = function(status) {
-			switch(status) {
-				case 0:
-					document.getElementById('stuts').innerHTML ="开始加载";
-					break;
-				case 1:
-					document.getElementById('stuts').innerHTML ="加载中";
-					appendItems();
-					break;
-				case 2:
-					document.getElementById('stuts').innerHTML ="加载完成";
-					break;
-			}
-		}
-	}
-	
-	function start(){
-		var width = window.screen.width;
-		var height = window.screen.height - 200;
-		var params = {
-			"x": 0,
-	        "y": 200,
-	        "w":width,
-	        "h":height
-		};
-		
-		var items = {
-			    "listItems":[
-			               {
-			               "image": "http://192.168.1.38:8080/bug/TestImageWatcher/1.jpg",
-			               "placeholderImg":"res://1Normal.png",
-			               "title": "标题",
-			               "subtitle":"子标题",
-			               "rightBtnImg": "res://ac_title_btn_hov.png",
-			               "titleSize": 25,
-			               "titleColor":"#006000",
-			               "subtitleSize": 20,
-			               "subtitleColor":"#000000",
-			               "selectedBackgroundColor":"#006000",
-			               "backgroundColor":"#FFFFFF",
-			               "height":200
-			               },
-			               {
-			               "image": "http://192.168.1.38:8080/bug/TestImageWatcher/2.jpg",
-			               "placeholderImg":"res://1Normal.png",
-			               "title": "标题",
-			               "subtitle":"子标题",
-			               "rightBtnImg": "res://ac_title_btn_hov.png",
-			               "titleSize": 25,
-			               "titleColor":"#006000",
-			               "subtitleSize": 20,
-			               "subtitleColor":"#000000",
-			               "selectedBackgroundColor":"#006000",
-			               "backgroundColor":"#FFFFFF",
-			               "height":200
-			               },
-			               {
-			               "image": "http://192.168.1.38:8080/bug/TestImageWatcher/3.jpg",
-			               "placeholderImg":"res://1Normal.png",
-			               "title": "标题",
-			               "subtitle":"子标题",
-			               "rightBtnImg": "res://ac_title_btn_hov.png",
-			               "titleSize": 25,
-			               "titleColor":"#006000",
-			               "subtitleSize": 20,
-			               "subtitleColor":"#000000",
-			               "selectedBackgroundColor":"#006000",
-			               "backgroundColor":"#FFFFFF",
-			               "height":200
-			               }
-			               ],
-			       "rightSwipeOptionItem":{
-			               "backgroundColor":"#ffffff",
-			               "optionBtn":[
-			                            {
-			                            "btnIndex": "1",
-			                            "text": "分享",
-			                            "textColor":"#ffffff",
-			                            "textSize":20,
-			                            "bgColor":"#6F00D2"
-			                            },
-			                            {
-			                            "btnIndex":"2",
-			                            "text": "删除",
-			                            "textColor":"#ffffff",
-			                            "textSize": 20,
-			                            "bgColor":"#6F00D2"
-			                            }
-			                            ]
-			           },
-			           "leftSwipeOptionItem":{
-			               "backgroundColor":"#ffffff",
-			               "optionBtn":[
-			                            {
-			                            "btnIndex": "1",
-			                            "text": "分享",
-			                            "textColor":"#ffffff",
-			                            "textSize":20,
-			                            "bgColor":"#6F00D2"
-			                            },
-			                            {
-			                            "btnIndex":"2",
-			                            "text": "删除",
-			                            "textColor":"#ffffff",
-			                            "textSize": 20,
-			                            "bgColor":"#6F00D2"
-			                            }
-			                            ]
-			               },
-				};
-		uexListView.setItemSwipeType(2);	
-		//setHeader();
-		//setFooter();	
-		uexListView.setItems(JSON.stringify(items));
-		uexListView.open(JSON.stringify(params));
-	}
-	
-	function reloadItems() {
-		var params = {
-		    "listItems":[
-		               {
-		               "image": "http://192.168.1.38:8080/bug/TestImageWatcher/4.jpg",
-		               "placeholderImg":"res://1Normal.png",
-		               "title": "标题",
-		               "subtitle":"子标题",
-		               "rightBtnImg": "res://ac_title_btn_hov.png",
-		               "titleSize": 25,
-		               "titleColor":"#0000ff",
-		               "subtitleSize": 20,
-		               "subtitleColor":"#000000",
-		               "selectedBackgroundColor":"#006000",
-		               "backgroundColor":"#FFFFFF",
-		               "height":200
-		               },
-		               {
-		               "image": "http://192.168.1.38:8080/bug/TestImageWatcher/5.jpg",
-		               "placeholderImg":"res://1Normal.png",
-		               "title": "标题",
-		               "subtitle":"子标题",
-		               "rightBtnImg": "res://ac_title_btn_hov.png",
-		               "titleSize": 25,
-		               "titleColor":"#0000ff",
-		               "subtitleSize": 20,
-		               "subtitleColor":"#000000",
-		               "selectedBackgroundColor":"#006000",
-		               "backgroundColor":"#FFFFFF",
-		               "height":200
-		               }
-		               ]
-		};
-		uexListView.reloadItems(JSON.stringify(params));
-	}
-	
-	
-	function appendItems() {
-		var params = {
-			    "listItems":[
-			     {
-			     "image": "http://192.168.1.38:8080/bug/TestImageWatcher/6.jpg",
-			     "placeholderImg":"res://1Normal.png",
-			     "title": "标题",
-			     "subtitle":"子标题",
-			     "rightBtnImg": "res://ac_title_btn_hov.png",
-			     "titleSize": 25,
-			     "titleColor":"#006000",
-			     "subtitleSize": 20,
-			     "subtitleColor":"#000000",
-			     "selectedBackgroundColor":"#006000",
-			     "backgroundColor":"#FFFFFF",
-			     "height":200
-			     },
-			     {
-			     "image": "http://192.168.1.38:8080/bug/TestImageWatcher/7.jpg",
-			     "placeholderImg":"res://1Normal.png",
-			     "title": "标题",
-			     "subtitle":"子标题",
-			     "rightBtnImg": "res://ac_title_btn_hov.png",
-			     "titleSize": 25,
-			     "titleColor":"#006000",
-			     "subtitleSize": 20,
-			     "subtitleColor":"#000000",
-			     "selectedBackgroundColor":"#006000",
-			     "backgroundColor":"#FFFFFF",
-			     "height":200
-			     }
-			     ]
-			};
-			uexListView.appendItems(JSON.stringify(params));
-	}
-	
-	function end() {
-		uexListView.close("");
-	}
-	
-	function edit() {
-		uexListView.setEditingEnabled('true');
-	}
-	
-	function cancel() {
-		uexListView.setEditingEnabled('false');
-	}
-	
-	function setHeader() {
-		var params ={
-		   PullRefreshHeaderStyle:
-		   {
-		    "arrowImage":"res://1Normal.png",
-		    "backGroundColor":"#e2e7ed",
-		    "textColor":"#576c89",
-		    "textFontSize":20,
-		    "pullRefreshNormalText":"下拉可以刷新",
-		    "pullRefreshPullingText":"松开即可刷新",
-		    "pullRefreshLoadingText":"加载中...",
-		    "isShowUpdateDate":1
-		    }
-		};
-		uexListView.setPullRefreshHeader(JSON.stringify(params));
-	}
-	
-	function setFooter() {
-	var params ={
-		    PullRefreshFooterStyle:
-		    {
-		        "arrowImage":"res://1Normal.png",
-		        "backGroundColor":"#e2e7ed",            
-		        "textColor":"#576c89",
-		        "textFontSize":13,
-		        "pullRefreshNormalText":"上拉加载更多",
-		        "pullRefreshPullingText":"松开即可加载更多",
-		        "pullRefreshLoadingText":"加载中...",
-		        "isShowUpdateDate":1
-		    }
-		};
-		uexListView.setPullRefreshFooter(JSON.stringify(params));
-	}
-	
-	function insert() {
-			var params ={
-		    "itemIndex":1,
-		    "listItem":{
-		            "image": "http://www.iconpng.com/png/mapmarkers/marker_inside_azure.png",
-		            "placeholderImg":"res://1Normal.png",
-		            "title": "标题",
-		            "subtitle":"子标题",
-		            "rightBtnImg": "res://ac_title_btn_hov.png",
-		            "titleSize": 25,
-		            "titleColor":"#006000",
-		            "subtitleSize": 20,
-		            "subtitleColor":"#000000",
-		            "selectedBackgroundColor":"#006000",
-		            "backgroundColor":"#FFFFFF",
-		            "height":200
-		    	}
-			};
-		uexListView.insertItemAt(JSON.stringify(params));
-	}
-	
-	function del() {
-		var params = {
-			"itemIndex":[0, 1, 2]
-		};
-		uexListView.deleteItemsAt(JSON.stringify(params));
-	}
-	
-</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script type="text/javascript">
+    function openCustom(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexListView.openCustom(data);
+    }
+
+    function setCustomItems(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexListView.setCustomItems(data);
+    }
+
+    function closeCustom(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexListView.closeCustom(data);
+    }
+
+    function insertCustomItem(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexListView.insertCustomItem(data);
+    }
+
+    function updateCustomItem(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexListView.updateCustomItem(data);
+    }
+
+    function deleteCustomItem(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexListView.deleteCustomItem(data);
+    }
+
+
+        window.uexOnload = function(type){
+            if(type == 0){
+            uexListView.onCustomItemClick = onCustomItemClick;
+            uexListView.onCustomPullRefreshHeader = onCustomPullRefreshHeader;
+            uexListView.onCustomPullRefreshFooter = onCustomPullRefreshFooter;
+
+            }
+        }
+    function onCustomItemClick(info){
+        alert(info);
+    }
+
+    function onCustomPullRefreshHeader(info){
+        alert(info);
+    }
+
+    function onCustomPullRefreshFooter(info){
+        alert(info);
+    }
+
+
+    </script>
 </head>
 
 <body>
-	<div class="tit">uexListView</div>
-	<div>
-			<input type="button" value="打开" onclick=start()>
-			<input type="button" value="关闭" onclick=end()>
-			<input type="button" value="插入" onclick=insert()>
-			<input type="button" value="删除" onclick=del()><br>
-			<div class="tcxx" id="stuts"></div>
-	</div>
+<div class="tit">uexListView</div>
+<div class="conbor">
+    <div class="consj">
+            <input class='btn' type='button' value='openCustom' onclick='openCustom()'>
+
+            <input class='btn' type='button' value='setCustomItems' onclick='setCustomItems()'>
+
+            <input class='btn' type='button' value='closeCustom' onclick='closeCustom()'>
+
+            <input class='btn' type='button' value='insertCustomItem' onclick='insertCustomItem()'>
+
+            <input class='btn' type='button' value='updateCustomItem' onclick='updateCustomItem()'>
+
+            <input class='btn' type='button' value='deleteCustomItem' onclick='deleteCustomItem()'>
+
+
+    </div>
+</div>
 </body>
 </html>
