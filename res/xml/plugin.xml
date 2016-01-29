@@ -16,8 +16,8 @@
         <method name="openCustom"/>
         <method name="setCustomItems"/>
         <method name="closeCustom"/>
-        <method name = "insertCustomItem"/>
-        <method name = "deleteCustomItem"/>
-        <method name = "updateCustomItem"/>
+        <method name="insertCustomItem"/>
+        <method name="deleteCustomItem"/>
+        <method name="updateCustomItem"/>
     </plugin>
 </uexplugins>
