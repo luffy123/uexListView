@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <uexplugins>
-    <plugin uexName="uexListView" version="3.0.9" build="9">
-		<info>9:修复plugin.xml</info>
+    <plugin uexName="uexListView" version="3.0.10" build="10">
+		<info>10.删除universalimageloader源码</info>
+		<build>9:修复plugin.xml</build>
 		<build>8:添加自定义布局相关接口</build>
 		<build>7:修复listview加载网络图片显示不正常的问题</build>
 		<build>6:修复listview侧滑按钮显示不正常的问题</build>

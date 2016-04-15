@@ -1,8 +1,23 @@
 package org.zywx.wbpalmstar.plugin.uexlistview;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import android.app.Activity;
+import android.content.Context;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Message;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout.LayoutParams;
+
+import com.ace.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.ace.universalimageloader.cache.memory.impl.UsingFreqLimitedMemoryCache;
+import com.ace.universalimageloader.core.ImageLoader;
+import com.ace.universalimageloader.core.ImageLoaderConfiguration;
+import com.ace.universalimageloader.core.assist.QueueProcessingType;
+import com.ace.universalimageloader.core.download.BaseImageDownloader;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,25 +42,8 @@ import org.zywx.wbpalmstar.util.customlayout.AttriLayoutBean;
 import org.zywx.wbpalmstar.util.customlayout.LayoutUtils;
 import org.zywx.wbpalmstar.util.customlayout.vo.LayoutItemVO;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Message;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
-
-import com.google.gson.reflect.TypeToken;
-import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
-import com.nostra13.universalimageloader.cache.memory.impl.UsingFreqLimitedMemoryCache;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EUExListView extends EUExBase{
     private static final String BUNDLE_DATA = "data";
@@ -85,7 +83,7 @@ public class EUExListView extends EUExBase{
 				.memoryCacheSize(2 * 1024 * 1024)
 				.diskCacheSize(50 * 1024 * 1024)
 				.tasksProcessingOrder(QueueProcessingType.LIFO)
-				.imageDownloader(new BaseImageDownloader(context, 5 * 1000, 30 * 1000)) 
+				.imageDownloader(new BaseImageDownloader(context, 5 * 1000, 30 * 1000))
 				.writeDebugLogs()
 				.build();
 		ImageLoader.getInstance().init(config);

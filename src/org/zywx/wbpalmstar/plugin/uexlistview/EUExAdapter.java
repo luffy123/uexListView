@@ -1,10 +1,5 @@
 package org.zywx.wbpalmstar.plugin.uexlistview;
 
-import org.zywx.wbpalmstar.base.BUtility;
-import org.zywx.wbpalmstar.engine.universalex.EUExUtil;
-import org.zywx.wbpalmstar.plugin.uexlistview.DataBean.DateItem;
-import org.zywx.wbpalmstar.plugin.uexlistview.DataBean.SwipeOption.ButtonItem;
-
 import android.content.Context;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,9 +13,15 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.ace.universalimageloader.core.DisplayImageOptions;
+import com.ace.universalimageloader.core.ImageLoader;
+import com.ace.universalimageloader.core.display.RoundedBitmapDisplayer;
+
+import org.zywx.wbpalmstar.base.BUtility;
+import org.zywx.wbpalmstar.engine.universalex.EUExUtil;
+import org.zywx.wbpalmstar.plugin.uexlistview.DataBean.DateItem;
+import org.zywx.wbpalmstar.plugin.uexlistview.DataBean.SwipeOption.ButtonItem;
+
 
 public class EUExAdapter extends BaseAdapter {
 	
@@ -40,7 +41,7 @@ public class EUExAdapter extends BaseAdapter {
 		options = new DisplayImageOptions.Builder()
 		.cacheInMemory(true) 
 		.cacheOnDisk(true)
-		.displayer(new RoundedBitmapDisplayer(20))  
+		.displayer(new RoundedBitmapDisplayer(20))
 		.build();  
 		
 		loader = ImageLoader.getInstance();

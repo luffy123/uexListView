@@ -2,40 +2,31 @@ package org.zywx.wbpalmstar.plugin.uexlistview.custom;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
-
-import org.w3c.dom.Text;
-import org.zywx.wbpalmstar.base.ACEImageLoader;
+import com.ace.universalimageloader.core.DisplayImageOptions;
+import com.ace.universalimageloader.core.ImageLoader;
+import com.ace.universalimageloader.core.display.RoundedBitmapDisplayer;
 import org.zywx.wbpalmstar.engine.universalex.EUExUtil;
-import org.zywx.wbpalmstar.plugin.uexlistview.EUExListView;
 import org.zywx.wbpalmstar.plugin.uexlistview.EUExListView.StateChangeListener;
 import org.zywx.wbpalmstar.plugin.uexlistview.EUExListViewUtils;
 import org.zywx.wbpalmstar.plugin.uexlistview.vo.CustomListDataVO;
 import org.zywx.wbpalmstar.plugin.uexlistview.vo.CustomListLayoutVO;
-import org.zywx.wbpalmstar.plugin.uexlistview.vo.OpenCustomVO;
 import org.zywx.wbpalmstar.util.customlayout.AttriLayoutBean;
 import org.zywx.wbpalmstar.util.customlayout.Constants;
 import org.zywx.wbpalmstar.util.customlayout.CustomLayoutView;
-import org.zywx.wbpalmstar.util.customlayout.OnLayoutClickListener;
 import org.zywx.wbpalmstar.util.customlayout.vo.ElementItemVO;
 import org.zywx.wbpalmstar.util.customlayout.vo.ElementVO;
 import org.zywx.wbpalmstar.util.customlayout.vo.LayoutItemVO;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class CustomListAdapter extends BaseAdapter{
