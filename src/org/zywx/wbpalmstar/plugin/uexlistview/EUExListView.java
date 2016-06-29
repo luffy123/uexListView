@@ -412,6 +412,7 @@ public class EUExListView extends EUExBase {
                     public void run() {
                         if (loadDatas != null) {
                             datas.getDates().addAll(loadDatas);
+                            adapter.notifyDataSetChanged();
                         }
                     }
                 });
