@@ -152,6 +152,9 @@ public class EUExListView extends EUExBase {
 
     public void close(String[] params) {
 
+        if (!(mContext instanceof Activity)){
+            return;
+        }
         ((Activity) mContext).runOnUiThread(new Runnable() {
             @Override
             public void run() {
