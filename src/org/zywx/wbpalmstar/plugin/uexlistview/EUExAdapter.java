@@ -72,7 +72,7 @@ public class EUExAdapter extends BaseAdapter {
 		ButtonItem bt = null;
 		if(convertView == null) {
 			holder = new ViewHolder();
-			convertView = View.inflate(context, EUExUtil.getResLayoutID("plugin_back_row"), null);
+			convertView = View.inflate(context, EUExUtil.getResLayoutID("plugin_listview_back_row"), null);
 			holder.fl = (FrameLayout) convertView.findViewById(EUExUtil.getResIdID("plugin_item"));
 			holder.cb = (CheckBox) convertView.findViewById(EUExUtil.getResIdID("plugin_item_cb"));
 			holder.iv = (ImageView) convertView.findViewById(EUExUtil.getResIdID("plugin_item_iv"));

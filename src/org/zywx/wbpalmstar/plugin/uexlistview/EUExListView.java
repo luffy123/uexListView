@@ -15,6 +15,7 @@ import com.ace.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.ace.universalimageloader.cache.memory.impl.UsingFreqLimitedMemoryCache;
 import com.ace.universalimageloader.core.ImageLoader;
 import com.ace.universalimageloader.core.ImageLoaderConfiguration;
+import com.ace.universalimageloader.core.assist.FailReason;
 import com.ace.universalimageloader.core.assist.QueueProcessingType;
 import com.ace.universalimageloader.core.download.BaseImageDownloader;
 import com.google.gson.reflect.TypeToken;
@@ -116,7 +117,7 @@ public class EUExListView extends EUExBase {
                     @Override
                     public void run() {
 
-                        view = View.inflate(mContext, EUExUtil.getResLayoutID("activity_main"), null);
+                        view = View.inflate(mContext, EUExUtil.getResLayoutID("plugin_listview_activity_main"), null);
                         lv = (BaseListView) view.findViewById(EUExUtil.getResIdID("plugin_listview_lv"));
                         lv.setSwipeMode(swipeMode);
                         lv.setMode(refreshMode);
