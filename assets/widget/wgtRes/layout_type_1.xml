@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<relativelayout width = "-1" height = "-1" padding="5" background = "#ffffff">
-    <text id = "txt1" width = "-2" height = "-2" text="item" textSize = "23"
-          textColor = "#000000,#dddddd,#ff0000" onClick = "onClick"/>
-    <text id = "txt2" width = "-2" height = "-2" text="right" textSize = "18"
-          textColor = "#FF0000,#dddddd,#ff0000" onClick = "onClick"
-          relation = "rightOf,txt1"/>
-</relativelayout>
