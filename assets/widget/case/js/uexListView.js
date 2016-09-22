@@ -94,18 +94,6 @@ define(["CC"],function(CC){
     };
     uexListView.setItems(JSON.stringify(params));
     UNIT_TEST.assert(true);
-    /*uexSearchBarView.onSearch = function(info){
-      uexSearchBarView.onSearch = null;
-      var keyword = JSON.parse(info).keyword;
-      if (!keyword) {
-        CC.log("uexSearchBarView.onSearch回调结果解析失败!");
-        UNIT_TEST.assert(false);
-      };
-      CC.confirm("请确认您输入的内容为\n" + keyword,function(ret){
-        UNIT_TEST.assert(ret);
-      });
-    };
-    CC.alert("请输入任意字符串进行搜索.");*/
   };
 
   TEST_CASE.setItemSwipeType = function(){
@@ -155,46 +143,259 @@ define(["CC"],function(CC){
       x: 0,
       y: (uexWindow.getHeight() * 0.2) | 0,
       w: uexWindow.getWidth(),
-      h: (uexWindow.getHeight() * 0.7) | 0,
+      h: (uexWindow.getHeight() * 0.3) | 0,
     };
     uexListView.open(param);
-    UNIT_TEST.assert(true);
     CC.confirm("请确认listView被正确打开.",function(ret){
       UNIT_TEST.assert(ret);
     });
   };
 
-  TEST_CASE.onItemClick = function(){
-    uexSearchBarView.onItemClick = function(info){
-      uexSearchBarView.onItemClick = null;
-      var data = JSON.parse(info);
-      var index = data.index;
-      var keyword = data.keyword;
-      if (!keyword || (!index && index !== 0)) {
-        CC.log("uexSearchBarView.onItemClick回调结果解析失败!");
-        UNIT_TEST.assert(false);
-      };
-      CC.confirm("请确认\n您选择的内容所在的行数(从0开始计数)为: " + index + "\n您所选择的内容为: " + keyword,function(ret){
-        UNIT_TEST.assert(ret);
-      });
+  TEST_CASE.insertItemAt = function(){
+    var params ={
+        "itemIndex":0,
+        "listItem":{
+            "image": "res://icon.png",
+            "placeholderImg":"res://1Normal.png",
+            "title": "我是插入项",
+            "subtitle": "子标题",
+            "rightBtnImg": "res://ac_title_btn_hov.png",
+            "titleSize": 30,
+            "titleColor":"#006000",
+            "subtitleSize": 10,
+            "subtitleColor":"#000000",
+            "selectedBackgroundColor":"#006000",
+            "backgroundColor":"#FFFFFF",
+            "height":200
+        }
     };
-    CC.alert("请继续进行若干次搜索操作,然后点击任一个搜索历史记录.");
-  };
-  TEST_CASE.clearHistory = function(){
-    CC.alert("即将清除搜索历史记录.",function(){
-      uexSearchBarView.clearHistory();
-      CC.confirm("请确认搜索历史记录已被正确清除",function(ret){
-        UNIT_TEST.assert(ret);
-      });
-    });
-  };
-  TEST_CASE.close = function(){
-    uexSearchBarView.close();
-    CC.confirm("请确认searchBarView已被正确关闭.",function(ret){
+    uexListView.insertItemAt(JSON.stringify(params));
+    CC.confirm("请确认插入第一条数据成功.",function(ret){
       UNIT_TEST.assert(ret);
     });
   };
 
+  TEST_CASE.deleteItemsAt = function(){
+      var params = {
+          itemIndex:[0,1]
+      };
+      uexListView.deleteItemsAt(JSON.stringify(params));
+      CC.confirm("请确认前两条已被删除.",function(ret){
+          UNIT_TEST.assert(ret);
+      });
+  };
+
+  TEST_CASE.appendItems = function(){
+    var params = {
+        "listItems":[
+            {
+                "image": "res://icon.png",
+                "placeholderImg":"res://1Normal.png",
+                "title": "append1",
+                "subtitle":"子标题",
+                "rightBtnImg": "res://ac_title_btn_hov.png",
+                "titleSize": 20,
+                "titleColor":"#006000",
+                "subtitleSize": 10,
+                "subtitleColor":"#000000",
+                "selectedBackgroundColor":"#006000",
+                "backgroundColor":"#FFFFFF",
+                "height":200
+            },
+            {
+                "image": "res://icon.png",
+                "placeholderImg":"res://1Normal.png",
+                "title": "append2",
+                "subtitle":"子标题",
+                "rightBtnImg": "res://ac_title_btn_hov.png",
+                "titleSize": 20,
+                "titleColor":"#006000",
+                "subtitleSize": 10,
+                "subtitleColor":"#000000",
+                "selectedBackgroundColor":"#006000",
+                "backgroundColor":"#FFFFFF",
+                "height":200
+            }
+        ]
+    };
+    uexListView.appendItems(JSON.stringify(params));
+    CC.confirm("请确认已加载两条数据至列表末尾",function(ret){
+          UNIT_TEST.assert(ret);
+    });
+  };
+
+  TEST_CASE.reloadItems = function(){
+    var params = {
+        "listItems":[
+            {
+                "image": "res://icon.png",
+                "placeholderImg":"res://1Normal.png",
+                "title": "reload1",
+                "subtitle":"子标题",
+                "rightBtnImg": "res://ac_title_btn_hov.png",
+                "titleSize": 20,
+                "titleColor":"#006000",
+                "subtitleSize": 10,
+                "subtitleColor":"#000000",
+                "selectedBackgroundColor":"#006000",
+                "backgroundColor":"#FFFFFF",
+                "height":200
+            },
+            {
+                "image": "res://icon.png",
+                "placeholderImg":"res://1Normal.png",
+                "title": "reload2",
+                "subtitle":"子标题",
+                "rightBtnImg": "res://ac_title_btn_hov.png",
+                "titleSize": 20,
+                "titleColor":"#006000",
+                "subtitleSize": 10,
+                "subtitleColor":"#000000",
+                "selectedBackgroundColor":"#006000",
+                "backgroundColor":"#FFFFFF",
+                "height":200
+            },
+            {
+                "image": "res://icon.png",
+                "placeholderImg":"res://1Normal.png",
+                "title": "reload1",
+                "subtitle":"子标题",
+                "rightBtnImg": "res://ac_title_btn_hov.png",
+                "titleSize": 20,
+                "titleColor":"#006000",
+                "subtitleSize": 10,
+                "subtitleColor":"#000000",
+                "selectedBackgroundColor":"#006000",
+                "backgroundColor":"#FFFFFF",
+                "height":200
+            },
+            {
+                "image": "res://icon.png",
+                "placeholderImg":"res://1Normal.png",
+                "title": "reload2",
+                "subtitle":"子标题",
+                "rightBtnImg": "res://ac_title_btn_hov.png",
+                "titleSize": 20,
+                "titleColor":"#006000",
+                "subtitleSize": 10,
+                "subtitleColor":"#000000",
+                "selectedBackgroundColor":"#006000",
+                "backgroundColor":"#FFFFFF",
+                "height":200
+            },
+            {
+                "image": "res://icon.png",
+                "placeholderImg":"res://1Normal.png",
+                "title": "reload1",
+                "subtitle":"子标题",
+                "rightBtnImg": "res://ac_title_btn_hov.png",
+                "titleSize": 20,
+                "titleColor":"#006000",
+                "subtitleSize": 10,
+                "subtitleColor":"#000000",
+                "selectedBackgroundColor":"#006000",
+                "backgroundColor":"#FFFFFF",
+                "height":200
+            },
+            {
+                "image": "res://icon.png",
+                "placeholderImg":"res://1Normal.png",
+                "title": "reload2",
+                "subtitle":"子标题",
+                "rightBtnImg": "res://ac_title_btn_hov.png",
+                "titleSize": 20,
+                "titleColor":"#006000",
+                "subtitleSize": 10,
+                "subtitleColor":"#000000",
+                "selectedBackgroundColor":"#006000",
+                "backgroundColor":"#FFFFFF",
+                "height":200
+            },
+            {
+                "image": "res://icon.png",
+                "placeholderImg":"res://1Normal.png",
+                "title": "reload1",
+                "subtitle":"子标题",
+                "rightBtnImg": "res://ac_title_btn_hov.png",
+                "titleSize": 20,
+                "titleColor":"#006000",
+                "subtitleSize": 10,
+                "subtitleColor":"#000000",
+                "selectedBackgroundColor":"#006000",
+                "backgroundColor":"#FFFFFF",
+                "height":200
+            },
+            {
+                "image": "res://icon.png",
+                "placeholderImg":"res://1Normal.png",
+                "title": "reload2",
+                "subtitle":"子标题",
+                "rightBtnImg": "res://ac_title_btn_hov.png",
+                "titleSize": 20,
+                "titleColor":"#006000",
+                "subtitleSize": 10,
+                "subtitleColor":"#000000",
+                "selectedBackgroundColor":"#006000",
+                "backgroundColor":"#FFFFFF",
+                "height":200
+            }
+        ]
+    };
+    uexListView.reloadItems(JSON.stringify(params));
+    CC.confirm("请确认列表数据已被刷新",function(ret){
+          UNIT_TEST.assert(ret);
+    });
+  };
+
+  TEST_CASE.onItemClick = function(){
+      UNIT_TEST.log("请点击列表项");
+      uexListView.onItemClick = function(index){
+        CC.confirm("请确认被点击的项的索引为" + index,function(ret){
+              UNIT_TEST.assert(ret);
+        });
+      };
+  };
+
+  TEST_CASE.onLeftOptionButtonInItem = function(){
+      UNIT_TEST.log("请向右滑动列表项，并点击左边的按钮");
+      uexListView.onLeftOptionButtonInItem = function(itemIndex,optionBtnIndex){
+        UNIT_TEST.log("onLeftOptionButtonInItem：列表索引:" + itemIndex + ",按钮索引:" + optionBtnIndex);
+        UNIT_TEST.assert(true);
+      }
+  };
+
+  TEST_CASE.onRightOptionButtonInItem = function(){
+      UNIT_TEST.log("请向左滑动列表项，并点击左右边的按钮");
+      uexListView.onRightOptionButtonInItem = function(itemIndex,optionBtnIndex){
+        UNIT_TEST.log("onRightOptionButtonInItem：列表索引:" + itemIndex + ",按钮索引:" + optionBtnIndex);
+        UNIT_TEST.assert(true);
+      }
+  };
+
+  TEST_CASE.ontPullRefreshHeaderListener = function(){
+      UNIT_TEST.log("向下拉动列表，触发下拉刷新的监听方法");
+      uexListView.ontPullRefreshHeaderListener = function(status){
+        if(status == 2){
+            UNIT_TEST.assert(true);
+        }
+      }
+  };
+
+  TEST_CASE.ontPullRefreshFooterListener = function(){
+      UNIT_TEST.log("向上拉动列表，触发上拉加载的监听方法");
+      uexListView.ontPullRefreshFooterListener = function(status){
+        if(status == 2){
+            UNIT_TEST.assert(true);
+        }
+      }
+  };
+
+  TEST_CASE.close = function(){
+    uexListView.close();
+    CC.confirm("请确认listView已被正确关闭.",function(ret){
+      UNIT_TEST.assert(ret);
+    });
+  };
 
   UNIT_TEST.addCase("uexListView", TEST_CASE);
 });

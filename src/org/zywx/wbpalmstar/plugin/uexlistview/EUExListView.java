@@ -76,38 +76,31 @@ public class EUExListView extends EUExBase {
                 final float y = Float.parseFloat(json.getString(EUExListViewUtils.LISTVIEW_PARAMS_JSON_KEY_Y));
                 final float w = Float.parseFloat(json.getString(EUExListViewUtils.LISTVIEW_PARAMS_JSON_KEY_W));
                 final float h = Float.parseFloat(json.getString(EUExListViewUtils.LISTVIEW_PARAMS_JSON_KEY_H));
-                ((Activity) mContext).runOnUiThread(new Runnable() {
+                view = View.inflate(mContext, EUExUtil.getResLayoutID("plugin_listview_activity_main"), null);
+                lv = (BaseListView) view.findViewById(EUExUtil.getResIdID("plugin_listview_lv"));
+                lv.setSwipeMode(swipeMode);
+                lv.setMode(refreshMode);
+                if (datas.getSopLeft() != null) {
+                    float lScale = datas.getSopLeft().getBts().size() > 1 ? 0.5f : 0.75f;
+                    leftOffset = w * lScale;
+                    lv.setOffsetRight(leftOffset);
+                }
+                if (datas.getSopRight() != null) {
+                    float rScale = datas.getSopRight().getBts().size() > 1 ? 0.5f : 0.75f;
+                    rightOffset = w * rScale;
+                    lv.setOffsetLeft(rightOffset);
+                }
+                adapter = new EUExAdapter(EUExListView.this, mContext, datas);
+                lv.setOnHeaderRefreshListener(onRefresh);
+                lv.setOnFooterRefreshListener(onRefresh);
+                lv.setSwipeListViewListener(new MyListViewListener());
+                lv.setAdapter(adapter);
 
-                    @Override
-                    public void run() {
-
-                        view = View.inflate(mContext, EUExUtil.getResLayoutID("plugin_listview_activity_main"), null);
-                        lv = (BaseListView) view.findViewById(EUExUtil.getResIdID("plugin_listview_lv"));
-                        lv.setSwipeMode(swipeMode);
-                        lv.setMode(refreshMode);
-                        if (datas.getSopLeft() != null) {
-                            float lScale = datas.getSopLeft().getBts().size() > 1 ? 0.5f : 0.75f;
-                            leftOffset = w * lScale;
-                            lv.setOffsetRight(leftOffset);
-                        }
-                        if (datas.getSopRight() != null) {
-                            float rScale = datas.getSopRight().getBts().size() > 1 ? 0.5f : 0.75f;
-                            rightOffset = w * rScale;
-                            lv.setOffsetLeft(rightOffset);
-                        }
-                        adapter = new EUExAdapter(EUExListView.this, mContext, datas);
-                        lv.setOnHeaderRefreshListener(onRefresh);
-                        lv.setOnFooterRefreshListener(onRefresh);
-                        lv.setSwipeListViewListener(new MyListViewListener());
-                        lv.setAdapter(adapter);
-
-                        LayoutParams param = new LayoutParams((int) w, (int) h);
-                        param.leftMargin = (int) x;
-                        param.topMargin = (int) y;
-                        addView2CurrentWindow(view, param);
-                        isOpen = true;
-                    }
-                });
+                LayoutParams param = new LayoutParams((int) w, (int) h);
+                param.leftMargin = (int) x;
+                param.topMargin = (int) y;
+                addView2CurrentWindow(view, param);
+                isOpen = true;
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -337,9 +330,9 @@ public class EUExListView extends EUExBase {
                     public void run() {
                         if (refreshDatas != null) {
                             datas.getDates().clear();
-                            adapter.notifyDataSetChanged();
                             datas.getDates().addAll(refreshDatas);
                             refreshDatas.clear();
+                            adapter.notifyDataSetChanged();
                         }
                     }
                 });

@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.ace.universalimageloader.core.DisplayImageOptions;
 import com.ace.universalimageloader.core.ImageLoader;
+import com.ace.universalimageloader.core.ImageLoaderConfiguration;
 import com.ace.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 import org.zywx.wbpalmstar.base.BUtility;
@@ -45,6 +46,7 @@ public class EUExAdapter extends BaseAdapter {
 		.build();  
 		
 		loader = ImageLoader.getInstance();
+        loader.init(ImageLoaderConfiguration.createDefault(context));
 	}
 
 	public void setEditable(boolean editable) {
