@@ -1,0 +1,18 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent" >
+
+    <org.zywx.wbpalmstar.plugin.uexlistview.BaseListView
+        xmlns:swipe="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/plugin_listview_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#CBCBCB"
+        android:dividerHeight="1dp"
+        android:fadingEdge="none"
+        android:scrollbars="none"
+        android:scrollingCache="false" />
+
+</RelativeLayout>

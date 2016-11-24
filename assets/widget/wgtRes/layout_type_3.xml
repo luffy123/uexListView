@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<linearlayout width = "-1" height = "-1" gravity = "centerY"
-              margin="5" background = "#ffffff" orientation = "horizontal">
-    <img id = "img1" width = "200" height = "200" onClick = "onClick" src = "res://icon.png"/>
-    <text id = "btn1" width = "-2" height = "-1" text = "Add" onClick = "onClick"
-            margin = "20 0 0 0" textColor = "#000000,#dddddd,#ff0000,#ff0000"/>
-</linearlayout>
